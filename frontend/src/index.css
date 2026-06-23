@@ -45,3 +45,53 @@ button {
 button {
   cursor: pointer;
 }
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+form input,
+form textarea {
+  width: 100%;
+  max-width: 500px;
+  font-size: 16px;
+}
+
+form button {
+  width: 120px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 6px;
+}
+
+form button:hover {
+  background: #1d4ed8;
+}
+
+.task-card button {
+  background: #dc2626;
+  color: white;
+  border: none;
+  border-radius: 6px;
+}
+
+.task-card button:hover {
+  background: #b91c1c;
+}
+.app-header {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.app-header h1 {
+  margin-bottom: 8px;
+  font-size: 42px;
+}
+
+.app-header p {
+  color: #666;
+  font-size: 18px;
+}
