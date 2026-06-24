@@ -95,3 +95,14 @@ form button:hover {
   color: #666;
   font-size: 18px;
 }
+.task-column:nth-child(1) {
+  border-top: 5px solid #3b82f6;
+}
+
+.task-column:nth-child(2) {
+  border-top: 5px solid #f59e0b;
+}
+
+.task-column:nth-child(3) {
+  border-top: 5px solid #22c55e;
+}
