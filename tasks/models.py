@@ -8,8 +8,21 @@ class Task(models.Model):
         ('done', 'Done'),
     ]
 
+    PRIORITY_CHOICES = [
+        ('low', 'Low'),
+        ('medium', 'Medium'),
+        ('high', 'High'),
+    ]
+
     title = models.CharField(max_length=200)
     description = models.TextField(blank=True)
+    due_date = models.DateField(null=True, blank=True)
+
+    priority = models.CharField(
+        max_length=10,
+        choices=PRIORITY_CHOICES,
+        default='medium'
+    )
 
     status = models.CharField(
         max_length=20,

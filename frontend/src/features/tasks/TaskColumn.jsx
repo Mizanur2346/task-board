@@ -7,16 +7,30 @@ const LABELS = {
   done: 'Done'
 };
 
-export function TaskColumn({ status }) {
+export function TaskColumn({ status, search }) {
   const { tasks } = useTasks();
-  const filtered = tasks.filter(task => task.status === status);
+
+  const filtered = tasks.filter(task => {
+    const matchesStatus = task.status === status;
+
+    const matchesSearch =
+      task.title.toLowerCase().includes(search.toLowerCase()) ||
+      task.description.toLowerCase().includes(search.toLowerCase());
+
+    return matchesStatus && matchesSearch;
+  });
 
   return (
     <div className="task-column">
-      <h2>{LABELS[status]} ({filtered.length})</h2>
+      <h2>
+        {LABELS[status]} ({filtered.length})
+      </h2>
 
       {filtered.map(task => (
-        <TaskCard key={task.id} task={task} />
+        <TaskCard
+          key={task.id}
+          task={task}
+        />
       ))}
     </div>
   );

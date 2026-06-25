@@ -106,3 +106,66 @@ form button:hover {
 .task-column:nth-child(3) {
   border-top: 5px solid #22c55e;
 }
+.search-box {
+  width: 320px;
+  padding: 10px;
+  margin-top: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+}
+.due-date {
+  font-size: 14px;
+  color: #555;
+  font-weight: 600;
+}
+.priority {
+  font-weight: bold;
+  margin: 8px 0;
+}
+
+.priority.high {
+  color: #d32f2f;
+}
+
+.priority.medium {
+  color: #f57c00;
+}
+
+.priority.low {
+  color: #388e3c;
+}
+
+.overdue {
+  color: #d32f2f;
+  font-weight: bold;
+}
+
+.task-overdue {
+  border-left: 5px solid #d32f2f;
+}
+.task-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.task-actions select {
+  min-width: 130px;
+}
+
+.task-card {
+  width: auto;
+}
+form select {
+  width: 100%;
+  max-width: 520px;
+  font-size: 16px;
+}
+form input[type="date"] {
+  width: 100%;
+  max-width: 500px;
+  font-size: 16px;
+}
