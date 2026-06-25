@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useAuth } from './context/AuthContext';
+import { TaskProvider } from './context/TaskContext';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import { TaskBoard } from './features/tasks/TaskBoard';
@@ -16,5 +17,9 @@ export default function App() {
     );
   }
 
-  return <TaskBoard />;
+  return (
+    <TaskProvider>
+      <TaskBoard />
+    </TaskProvider>
+  );
 }

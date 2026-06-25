@@ -11,24 +11,36 @@ export function AuthProvider({ children }) {
   );
 
   const login = async (username, password) => {
-    const response = await axios.post(`${API_BASE}/login/`, {
-      username,
-      password
-    });
+    try {
+      const response = await axios.post(`${API_BASE}/login/`, {
+        username,
+        password,
+      });
 
-    localStorage.setItem('accessToken', response.data.access);
-    localStorage.setItem('refreshToken', response.data.refresh);
+      console.log('Login response:', response.data);
 
-    setToken(response.data.access);
+      localStorage.setItem('accessToken', response.data.access);
+      localStorage.setItem('refreshToken', response.data.refresh);
+
+      setToken(response.data.access);
+    } catch (error) {
+      console.error('Login error:', error.response || error);
+      throw error;
+    }
   };
 
   const register = async (username, password) => {
-    await axios.post(`${API_BASE}/register/`, {
-      username,
-      password
-    });
+    try {
+      await axios.post(`${API_BASE}/register/`, {
+        username,
+        password,
+      });
 
-    await login(username, password);
+      await login(username, password);
+    } catch (error) {
+      console.error('Register error:', error.response || error);
+      throw error;
+    }
   };
 
   const logout = () => {
@@ -44,7 +56,7 @@ export function AuthProvider({ children }) {
         login,
         register,
         logout,
-        isAuthenticated: !!token
+        isAuthenticated: !!token,
       }}
     >
       {children}
